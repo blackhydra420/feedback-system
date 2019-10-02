@@ -1,0 +1,14 @@
+.main-body{
+    margin: 0 auto;
+}
+
+.select-form{
+    width: 500px;
+    margin: 26.5vh auto;
+    padding: 50px;
+}
+
+.feedback-form{
+    margin: 10vh auto;
+    padding: 30px;
+}
