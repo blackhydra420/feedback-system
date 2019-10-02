@@ -17,19 +17,119 @@
         <form action="selectbranch.php" method="post">
         <div class="row border align-items-center" style="padding:10px 0;">
                 <div class="col-4 font-weight-bold">Teacher name</div>
-                <div class="col text-center font-weight-bold">CPG</div>
-                <div class="col text-center font-weight-bold">PT</div>
-                <div class="col text-center font-weight-bold">PS</div>
-                <div class="col text-center font-weight-bold">DPS</div>
-                <div class="col text-center font-weight-bold">NS</div>
+                <div class="col text-center font-weight-bold">
+                    <div class="form-group">
+                        <select class="form-control" id="exampleFormControlSelect1">
+                        <option value="CPG">CPG</option>
+                        <option value="PT">PT</option>
+                        <option value="PS">PS</option>
+                        <option value="DPS">DPS</option>
+                        <option value="NS">NS</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col text-center font-weight-bold">
+                    <div class="form-group">
+                        <select class="form-control" id="exampleFormControlSelect1">
+                        <option value="CPG">CPG</option>
+                        <option value="PT">PT</option>
+                        <option value="PS">PS</option>
+                        <option value="DPS">DPS</option>
+                        <option value="NS">NS</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col text-center font-weight-bold">
+                    <div class="form-group">
+                        <select class="form-control" id="exampleFormControlSelect1">
+                        <option value="CPG">CPG</option>
+                        <option value="PT">PT</option>
+                        <option value="PS">PS</option>
+                        <option value="DPS">DPS</option>
+                        <option value="NS">NS</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col text-center font-weight-bold">
+                    <div class="form-group">
+                        <select class="form-control" id="exampleFormControlSelect1">
+                        <option value="CPG">CPG</option>
+                        <option value="PT">PT</option>
+                        <option value="PS">PS</option>
+                        <option value="DPS">DPS</option>
+                        <option value="NS">NS</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col text-center font-weight-bold">
+                    <div class="form-group">
+                        <select class="form-control" id="exampleFormControlSelect1">
+                        <option value="CPG">CPG</option>
+                        <option value="PT">PT</option>
+                        <option value="PS">PS</option>
+                        <option value="DPS">DPS</option>
+                        <option value="NS">NS</option>
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="row border align-items-center" style="padding:10px 0;">
                 <div class="col-4 font-weight-bold">Subject</div>
-                <div class="col text-center font-weight-bold">WE</div>
-                <div class="col text-center font-weight-bold">CD</div>
-                <div class="col text-center font-weight-bold">ES</div>
-                <div class="col text-center font-weight-bold">DS</div>
-                <div class="col text-center font-weight-bold">HCI</div>
+                <div class="col text-center font-weight-bold">
+                    <div class="form-group">
+                        <select class="form-control" id="exampleFormControlSelect1">
+                        <option value="WE">WE</option>
+                        <option value="CD">CD</option>
+                        <option value="ES">ES</option>
+                        <option value="DS">DS</option>
+                        <option value="HCI">HCI</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col text-center font-weight-bold">
+                    <div class="form-group">
+                        <select class="form-control" id="exampleFormControlSelect1">
+                        <option value="WE">WE</option>
+                        <option value="CD">CD</option>
+                        <option value="ES">ES</option>
+                        <option value="DS">DS</option>
+                        <option value="HCI">HCI</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col text-center font-weight-bold">
+                    <div class="form-group">
+                        <select class="form-control" id="exampleFormControlSelect1">
+                        <option value="WE">WE</option>
+                        <option value="CD">CD</option>
+                        <option value="ES">ES</option>
+                        <option value="DS">DS</option>
+                        <option value="HCI">HCI</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col text-center font-weight-bold">
+                    <div class="form-group">
+                        <select class="form-control" id="exampleFormControlSelect1">
+                        <option value="WE">WE</option>
+                        <option value="CD">CD</option>
+                        <option value="ES">ES</option>
+                        <option value="DS">DS</option>
+                        <option value="HCI">HCI</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col text-center font-weight-bold">
+                    <div class="form-group">
+                        <select class="form-control" id="exampleFormControlSelect1">
+                        <option value="WE">WE</option>
+                        <option value="CD">CD</option>
+                        <option value="ES">ES</option>
+                        <option value="DS">DS</option>
+                        <option value="HCI">HCI</option>
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="row border align-items-center" style="padding:10px 0;">
                 <div class="col-4 font-weight-bold">Subject Knowledge</div>
