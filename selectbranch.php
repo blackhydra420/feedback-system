@@ -1,5 +1,9 @@
 <?php 
     session_start();
+    if(!isset($_SESSION["u_login"])){
+        header("Location: index.php");
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +18,7 @@
 </head>
 <body>
     <?php
-        include_once 'include/navbar.php';
+        // include_once 'include/navbar.php';
     ?>
             <div class="container main-body shadow-lg select-form">
                 
@@ -42,13 +46,13 @@
                             </select>
                             
                         </div>
-                        <button type="submit" name="branch_submit" id="branch_submit" class="btn btn-primary form-control">Submit</button>
+                        <button type="submit" name="branch_submit" id="branch_submit" class="btn btn-primary form-control" style="background-color:#343a40; border-color:#343a40;">Submit</button>
                     </form>
                 
             </div>
 
     <?php
-        include_once 'include/footer.php';
+        // include_once 'include/footer.php';
     ?>
 </body>
 </html>

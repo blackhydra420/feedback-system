@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php session_start();
+if(!isset($_SESSION["u_login"])){
+    header("Location: index.php");
+    exit();
+}
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +17,7 @@
 </head>
 <body>
     <?php
-        include_once 'include/navbar.php';
+        // include_once 'include/navbar.php';
     ?>
     <div class="container main-body shadow-lg feedback-form">
         <form action="include/score_feed.php" method="post">
@@ -204,12 +209,12 @@
                 <div class="col d-flex justify-content-center"><input type="number" min="1" max="10" name="negl4"></div>
                 <div class="col d-flex justify-content-center"><input type="number" min="1" max="10" name="negl5"></div>
             </div>
-            <button type="submit" id="score_submit" name="score_submit" class="btn btn-primary form-control" style="margin-top:30px;">Submit</button>
+            <button type="submit" id="score_submit" name="score_submit" class="btn btn-primary form-control" style="margin-top:30px; background-color:#343a40; border-color:#343a40;">Submit</button>
         </form>
     </div>
 
     <?php
-        include_once 'include/footer.php';
+        // include_once 'include/footer.php';
     ?>
 </body>
 </html>

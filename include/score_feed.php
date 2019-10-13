@@ -120,14 +120,7 @@ if(isset($_POST["score_submit"])){
     mysqli_stmt_bind_param($stmt, "sissiiiiiiiiis", $_SESSION["branch"], $_SESSION["sem"], $t5, $s5, $sk5, $cie5, $csvq5, $sasq5, $qnds5, $iqdg5, $ptc5, $pl5, $negl5, $date);
     mysqli_stmt_execute($stmt);
 
-    echo $_SESSION["branch"];
-    echo $_SESSION["sem"];
-    echo $t1;
-    echo $s1;
-    echo $sk1;
-    echo $cie1;
-
-    // header("Location: ../index.php?successfull");
+    header("Location: ../submitted.php?successfull");
 } else {
     header("Location: ../index.php?failed");
     exit();
