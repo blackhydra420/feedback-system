@@ -1,5 +1,5 @@
 <?php
-$db_name = "cs";
+$db_name = "feedback_system";
 $username = "root";
 $password = "";
 $server_name = "localhost";

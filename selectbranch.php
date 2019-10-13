@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +18,7 @@
     ?>
             <div class="container main-body shadow-lg select-form">
                 
-                    <form>
+                    <form method="POST" action="include/branch_inc.php">
                         <div class="form-group">
                             <label for="branch">Branch</label>
                             <select name="branch" id="branch" class="form-control">
@@ -28,18 +31,18 @@
                         <div class="form-group">
                             <label for="sem">Sem</label>
                             <select name="sem" id="sem" class="form-control">
-                                <option value="I">1</option>
-                                <option value="II">2</option>
-                                <option value="III">3</option>
-                                <option value="IV">4</option>
-                                <option value="V">5</option>
-                                <option value="VI">6</option>
-                                <option value="VII">7</option>
-                                <option value="VIII">8</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
                             </select>
                             
                         </div>
-                        <button type="submit" class="btn btn-primary form-control">Submit</button>
+                        <button type="submit" name="branch_submit" id="branch_submit" class="btn btn-primary form-control">Submit</button>
                     </form>
                 
             </div>
