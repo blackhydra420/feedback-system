@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Feedback form</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/cdf493be5b.js"></script>
     <link rel="stylesheet" href="assets/css/index.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
@@ -19,9 +19,9 @@
                      'Lucida Sans Regular', 
                      'Lucida Grande', 
                      'Lucida Sans Unicode', 
-                     Geneva, 
-                     Verdana, 
-                     sans-serif !important;
+                      Geneva, 
+                      Verdana, 
+                      sans-serif !important;
     }
 
     .login-bg {
