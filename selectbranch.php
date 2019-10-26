@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="assets/css/index.css">
 </head>
 <body>
+    <div class="login_toast shadow-lg"><?php echo $_SESSION["u_login"] ?></div>
     <?php
         // include_once 'include/navbar.php';
     ?>

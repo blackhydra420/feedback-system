@@ -19,6 +19,8 @@ if(!isset($_SESSION["u_login"])){
     <?php
         // include_once 'include/navbar.php';
     ?>
+    <div class="login_toast shadow-lg"><?php echo $_SESSION["u_login"] ?></div>
+
     <div class="container main-body shadow-lg feedback-form">
         <form action="include/score_feed.php" method="post">
         <div class="row border align-items-center" style="padding:10px 0;">
