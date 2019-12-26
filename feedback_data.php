@@ -1,9 +1,9 @@
 <?php 
-    // session_start();
-    // if(!isset($_SESSION["a_login"])){
-    //     header("Location: admin_login.php");
-    //     exit();
-    // }
+    session_start();
+    if(!isset($_SESSION["a_login"])){
+        header("Location: admin_login.php");
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,21 +11,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Feedback form</title>
+    <title>Feedback Data</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/cdf493be5b.js"></script>
     <link rel="stylesheet" href="assets/css/index.css">
 </head>
 <body>
     <div class="search_bar">
-        <form class="form-inline">
+        <form class="form-inline" method="post" action="feedback_data.php">
             <div class="form-group mb-2">
                 <label for="staticEmail2" class="sr-only">Email</label>
                 <select name="branch" id="branch" class="form-control width_box">
-                        <option value="CSE">CSE</option>
-                        <option value="ME">ME</option>
-                        <option value="EE">EE</option>
-                        <option value="CE">CE</option>
+                        <option value="cs">CSE</option>
+                        <option value="me">ME</option>
+                        <option value="ee">EE</option>
+                        <option value="ce">CE</option>
                 </select>
             </div>
             <div class="form-group mx-sm-3 mb-2">
@@ -67,24 +67,30 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                <?php
+                    if(isset($_POST["search"])){
+
+                        $branch = $_POST["branch"];
+                        $sem = $_POST["sem"];
+                        $date = $_POST["date"];
+                    
+                        include_once "include/dbc_connection.php";
+                    
+                        $sql = 'SELECT tname,sname,AVG(subject_knowledge),AVG(clarity_in_explanation),AVG(comm_skill),AVG(satis_fact_ans),AVG(quality_notes),AVG(imp_question),AVG(punc_class),AVG(punc_lab),AVG(need_explain) FROM score WHERE branch="'.$branch.'" AND sem="'.$sem.'" GROUP BY tname';
+                        $stmt = mysqli_stmt_init($conn);
+                        mysqli_stmt_prepare($stmt, $sql);
+                        mysqli_stmt_execute($stmt);
+                        $result = mysqli_stmt_get_result($stmt);
+                    
+                        while($row = mysqli_fetch_assoc($result)){
+                            echo '<tr> <td>'.$row["tname"].'</td> <td>'.$row["sname"].'</td> <td>'.$row["AVG(subject_knowledge)"].'</td> <td>'.$row["AVG(clarity_in_explanation)"].'</td> <td>'.$row["AVG(comm_skill)"].'</td> <td>'.$row["AVG(satis_fact_ans)"].'</td> <td>'.$row["AVG(quality_notes)"].'</td> <td>'.$row["AVG(imp_question)"].'</td> <td>'.$row["AVG(punc_class)"].'</td> <td>'.$row["AVG(punc_lab)"].'</td> <td>'.$row["AVG(need_explain)"].'</td> </tr>';
+                        }
+                    
+                    } else {
+                        echo 'No data';
+                    }
+                ?>
+                
             </tbody>
         </table>
     </div>

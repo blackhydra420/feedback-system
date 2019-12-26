@@ -17,7 +17,7 @@ if(isset($_POST["login"])){
         if ($row = mysqli_fetch_assoc($result)) {
             if ($upass == $row["password"]) {
                 $_SESSION["a_login"] = $row["username"];
-                header("Location: ../selectbranch.php");
+                header("Location: ../feedback_data.php");
                 exit();
             } else {
                 header("Location: ../admin_login.php?wrongpassword");

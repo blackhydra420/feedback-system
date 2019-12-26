@@ -2,12 +2,12 @@
 session_start();
 
 if(isset($_POST["login"])){
-    $uid = $_POST["username"];
+    $uid = strtoupper($_POST["username"]);
     $upass = $_POST["password"];
 
     include_once "dbc_connection.php";
 
-    $sql = "SELECT * FROM student_login WHERE username='$uid'";
+    $sql = "SELECT * FROM student_data WHERE roll_no='$uid'";
     $stmt = mysqli_stmt_init($conn);
     mysqli_stmt_prepare($stmt,$sql);
     mysqli_stmt_execute($stmt);
@@ -16,8 +16,10 @@ if(isset($_POST["login"])){
     if ($resultCheck == 1) {
         if ($row = mysqli_fetch_assoc($result)) {
             if ($upass == $row["password"]) {
-                $_SESSION["u_login"] = $row["username"];
-                header("Location: ../selectbranch.php");
+                $_SESSION["u_login"] = $row["roll_no"];
+                $_SESSION["branch"] = $row["branch"];
+                $_SESSION["sem"] = $row["sem"];
+                header("Location: ../feedback.php");
                 exit();
             } else {
                 header("Location: ../index.php?wrongpassword");

@@ -23,122 +23,44 @@ if(!isset($_SESSION["u_login"])){
 
     <div class="container main-body shadow-lg feedback-form">
         <form action="include/score_feed.php" method="post">
-        <div class="row border align-items-center" style="padding:10px 0;">
-                <div class="col-4 font-weight-bold">Teacher name</div>
-                <div class="col text-center font-weight-bold">
-                    <div class="form-group">
-                        <select class="form-control" name="t1">
-                        <option value="CPG">CPG</option>
-                        <option value="PT">PT</option>
-                        <option value="PS">PS</option>
-                        <option value="DPS">DPS</option>
-                        <option value="NS">NS</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col text-center font-weight-bold">
-                    <div class="form-group">
-                        <select class="form-control" name="t2">
-                        <option value="CPG">CPG</option>
-                        <option value="PT">PT</option>
-                        <option value="PS">PS</option>
-                        <option value="DPS">DPS</option>
-                        <option value="NS">NS</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col text-center font-weight-bold">
-                    <div class="form-group">
-                        <select class="form-control" name="t3">
-                        <option value="CPG">CPG</option>
-                        <option value="PT">PT</option>
-                        <option value="PS">PS</option>
-                        <option value="DPS">DPS</option>
-                        <option value="NS">NS</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col text-center font-weight-bold">
-                    <div class="form-group">
-                        <select class="form-control" name="t4">
-                        <option value="CPG">CPG</option>
-                        <option value="PT">PT</option>
-                        <option value="PS">PS</option>
-                        <option value="DPS">DPS</option>
-                        <option value="NS">NS</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col text-center font-weight-bold">
-                    <div class="form-group">
-                        <select class="form-control" name="t5">
-                        <option value="CPG">CPG</option>
-                        <option value="PT">PT</option>
-                        <option value="PS">PS</option>
-                        <option value="DPS">DPS</option>
-                        <option value="NS">NS</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row border align-items-center" style="padding:10px 0;">
-                <div class="col-4 font-weight-bold">Subject</div>
-                <div class="col text-center font-weight-bold">
-                    <div class="form-group">
-                        <select class="form-control" name="s1">
-                        <option value="WE">WE</option>
-                        <option value="CD">CD</option>
-                        <option value="ES">ES</option>
-                        <option value="DS">DS</option>
-                        <option value="HCI">HCI</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col text-center font-weight-bold">
-                    <div class="form-group">
-                        <select class="form-control" name="s2">
-                        <option value="WE">WE</option>
-                        <option value="CD">CD</option>
-                        <option value="ES">ES</option>
-                        <option value="DS">DS</option>
-                        <option value="HCI">HCI</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col text-center font-weight-bold">
-                    <div class="form-group">
-                        <select class="form-control" name="s3">
-                        <option value="WE">WE</option>
-                        <option value="CD">CD</option>
-                        <option value="ES">ES</option>
-                        <option value="DS">DS</option>
-                        <option value="HCI">HCI</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col text-center font-weight-bold">
-                    <div class="form-group">
-                        <select class="form-control" name="s4">
-                        <option value="WE">WE</option>
-                        <option value="CD">CD</option>
-                        <option value="ES">ES</option>
-                        <option value="DS">DS</option>
-                        <option value="HCI">HCI</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col text-center font-weight-bold">
-                    <div class="form-group">
-                        <select class="form-control" name="s5">
-                        <option value="WE">WE</option>
-                        <option value="CD">CD</option>
-                        <option value="ES">ES</option>
-                        <option value="DS">DS</option>
-                        <option value="HCI">HCI</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+
+        <?php
+            include_once "include/dbc_connection.php";
+
+            $sql = "SELECT * FROM teacher_data WHERE branch='".$_SESSION["branch"]."' AND sem='".$_SESSION["sem"]."'";
+            $stmt = mysqli_stmt_init($conn);
+            mysqli_stmt_prepare($stmt,$sql);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+
+            $tName = array();
+            $sName = array();
+
+            $tIndex = 0;
+            $sIndex = 0;
+
+            while($row = mysqli_fetch_assoc($result)){
+                $tName[$tIndex] = $row['t_name'];
+                $sName[$sIndex] = $row['s_name'];
+
+                $tIndex += 1;
+                $sIndex += 1;
+            }
+
+            echo '<div class="row border align-items-center" style="padding:10px 0;"> <div class="col-4 font-weight-bold">Teacher name</div>';
+            for($i = 0; $i < count($tName); $i++){
+                echo '<div class="col text-center font-weight-bold"><input type="text" value="'.$tName[$i].'" readonly="true" style="width:67px;" name="t'.($i+1).'"></div>';
+            }
+            echo '</div>';
+
+            echo '<div class="row border align-items-center" style="padding:10px 0;"> <div class="col-4 font-weight-bold">Subject name</div>';
+            for($i = 0; $i < count($sName); $i++){
+                echo '<div class="col text-center font-weight-bold"><input type="text" value="'.$sName[$i].'" readonly="true" style="width:67px;" name="s'.($i+1).'"></div>';
+            }
+            echo '</div>';
+        ?>
+        
+
             <div class="row border align-items-center" style="padding:10px 0;">
                 <div class="col-4 font-weight-bold">Subject Knowledge</div>
                 <div class="col d-flex justify-content-center"><input type="number" min="1" max="10" name="sk1"></div>
